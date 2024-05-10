@@ -1,0 +1,82 @@
+// Definición de variables
+$particleNum: 200; // Número de flores
+$particleBaseSize: 8; // Tamaño base de las flores
+$particleColor: #f3c3d1; // Color de sakura (rosa suave)
+
+// Estilos del fondo
+.background {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; // Extender al ancho completo
+  height: 100%; // Extender al alto completo
+  object-fit: cover;
+}
+
+// Contenedor de las flores
+.flower-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; // Extender al ancho completo
+  height: 100%; // Extender al alto completo
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  // Estilos de las flores
+  .flower {
+    width: $particleBaseSize + px;
+    height: $particleBaseSize + px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-bottom-color: $particleColor;
+    position: absolute;
+    animation: fade-frames 200ms infinite, move-flowers 2s infinite;
+
+    // Animación de desvanecimiento
+    @keyframes fade-frames {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    // Animación de movimiento
+    @keyframes move-flowers {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(20px);
+      }
+    }
+  }
+}
+
+// Generación de las flores
+// Generación de las flores
+@for $i from 1 through $particleNum {
+    .flower-container:nth-child(#{$i}) .flower {
+      animation-delay: random(4000) + ms;
+      width: random($particleBaseSize * 2) + px; // Ajusta el tamaño de cada flor
+      height: $particleBaseSize + px;
+      animation-duration: random(37000) + ms; // Ajusta la duración de la animación de cada flor
+      animation-name: move-flowers-#{$i}; // Nombre único de la animación para cada flor
+  
+      // Animación de movimiento individual
+      @keyframes move-flowers-#{$i} {
+        from {
+          transform: translate3d(calc(#{random(101)}vw), 100vh, 0); // Extender la posición horizontalmente
+        }
+        to {
+          transform: translate3d(calc(#{random(101)}vw), -100vh - random(30), 0); // Extender la posición horizontalmente
+        }
+      }
+    }
+  }

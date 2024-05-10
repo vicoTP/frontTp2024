@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,600,700");
+
+$rosaSuave: #F5B7B1;
+$verdeMenta: #98DDCA;
+$blancoPuro: #FFFFFF;
+$verdeOscuro: #2C3E50;
+$amarilloBrillante: #F7DC6F;
+$lilaSuave: #D7BDE2;
+$colorFuente: #34495E; // Color de fuente oscuro para el texto principal
+$colorFuenteSecundario: #7F8C8D; // Color de fuente secundario para texto de menor importancia
+$dark-blue: rgba(7, 10, 29, 0.5);
+$pearl: rgba(234, 224, 200, 0.5);
+
+  // body,
+  // html {
+  //   overflow: hidden;
+  // }
+
+.app-background {
+    display: block;
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    mask-image: radial-gradient(white 0%, white 30%, transparent 80%, transparent);
+    background-color: $rosaSuave;
+  }
+  
+* {
+  box-sizing: border-box;
+}
+
+
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.modal {
+    background: linear-gradient(to right top, $dark-blue, $pearl);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  title{
+    font-size: 26px;
+    margin: 0;
+    font-weight: 400;
+    color: $colorFuente;
+  }
+}
+
+.modal-container {
+    display: flex;
+    max-width: 720px;
+    width: 100%;
+    border-radius: 10px;
+    position: absolute;
+    opacity: 1;
+    pointer-events: auto;
+    transition-duration: 0.3s;
+    transform: translateY(0) scale(1);
+    background-color: $blancoPuro;
+}
+
+.modal-desc {
+    margin: 6px 0 30px 0;
+}
+
+.modal-left {
+    padding: 60px 30px 20px;
+    background: #fff;
+    flex: 1.5;
+    transition-duration: 0.5s;
+    transform: translateY(0);
+    opacity: 1;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius:0 ;
+}
+
+.modal-title {
+    font-size: 24px; /* Decrease the font-size by 2px */
+    margin: -30px 0 0; /* Add negative margin-top of 2px */
+    font-weight: 400;
+    color: $colorFuente;
+  }
+
+.modal-desc {
+  margin-bottom: 10px;
+}
+
+.input-block {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+  
+    label {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-family: "Nunito", sans-serif;
+      font-weight: bold;
+      letter-spacing: 0.7px;
+      color: $colorFuenteSecundario;
+      transition: 0.3s;
+    }
+  
+    input {
+        outline: 0;
+        border: 0;
+        padding: 4px 0;
+        font-size: 14px;
+        font-family: "Nunito", sans-serif;
+        width: 300px;
+        height: 20px; /* Update the height to your desired value */
+  
+        &::placeholder {
+          color: #ccc;
+          opacity: 1;
+          font-style: italic;
+        }
+      }
+
+      &:focus-within {
+        border-color: #8c7569;
+    
+        .input-label {
+          color: rgba(#8c7569, 0.8);
+        }
+      }
+    .password-input {
+      position: relative;
+  
+      .password-toggle {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+  
+        .toggle-icon {
+          font-size: 20px;
+          color: #999;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+  
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  a {
+    color: $colorFuente;
+    font-size: 14px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}
+
+.input-button {
+    padding: 8px 12px;
+  outline: none;
+  border: 0;
+  color: #fff;
+  border-radius: 4px;
+  background: $verdeMenta;
+  font-family: "Nunito", sans-serif;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background: darken($verdeMenta, 30%);
+  }
+
+}
+
+.sign-up {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+
+  a {
+    color: $amarilloBrillante;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.modal-right {
+  margin-left: 20px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition-duration: 1.2s;
+    transform: scale(1);
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    border-radius: 9px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius:0 ;
+  }
+}
+
+.password-input-wrapper {
+    position: relative;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .password-toggle i {
+    font-size: 16px;
+    color: #ccc;
+  }
+  
+
+@media(max-width: 750px) {
+    .modal-container {
+      width: 90%;
+    }
+    .modal-right {
+      display: none;
+    }
+  }
